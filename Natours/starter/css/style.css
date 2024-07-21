@@ -26,16 +26,16 @@ body {
     padding: 10px;
 }
 
-.header{
+.header {
     height: 95vh;
-    background-image:linear-gradient( to right bottom, rgba(126, 213, 111, 0.80), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.80), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
 }
 
-.logo-box{
+.logo-box {
     position: absolute;
     top: 40px;
     left: 40px;
@@ -44,15 +44,16 @@ body {
 .logo {
     height: 35px;
 }
-.tex-box{
-    position:absolute;
+
+.tex-box {
+    position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
-.heading-primary{
+.heading-primary {
     color: #fff;
     text-transform: uppercase;
     backface-visibility: hidden;
@@ -60,7 +61,7 @@ body {
 
 }
 
-.heading-primary-main{
+.heading-primary-main {
     display: block;
     font-size: 60px;
     font-weight: 400;
@@ -69,10 +70,10 @@ body {
     /* animation-delay: 3s; */
     /* animation-iteration-count: 3; */
     /* animation-timing-function: ease-out; */
-    animation-duration: 5s;
+    animation-duration: 3s;
 }
 
-.heading-primary-sub{
+.heading-primary-sub {
     display: block;
     font-size: 20px;
     font-weight: 700;
@@ -81,36 +82,49 @@ body {
     /* animation-delay: 3s; */
     /* animation-iteration-count: 3; */
     /* animation-timing-function: ease-out; */
-    animation-duration: 5s;
+    animation-duration: 3s;
 }
 
 
 @keyframes moveInLeft {
-    0%{
+    0% {
         opacity: 0;
         transform: translateX(-100px);
     }
 
-    80%{
+    80% {
         transform: translateX(20px);
     }
 
-    100%{
+    100% {
         opacity: 1;
         transform: translate(0);
     }
 }
+
 @keyframes moveInRight {
-    0%{
+    0% {
         opacity: 0;
         transform: translateX(100px);
     }
 
-    80%{
+    80% {
         transform: translateX(-20px);
     }
 
-    100%{
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
         opacity: 1;
         transform: translate(0);
     }
@@ -124,20 +138,49 @@ body {
     display: inline-block;
     border-radius: 100px;
     transition: all .2s;
+    position: relative;
 }
 
-.btn:hover{
+.btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 }
 
-.btn:active{
+.btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
-.btn-white{
+.btn-white {
     background-color: #fff;
     color: #777;
 
+}
+
+.btn:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+
+}
+
+.btn-white:after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInButton .5s ease-out .75;
+    animation-fill-mode: backwards;
 }
